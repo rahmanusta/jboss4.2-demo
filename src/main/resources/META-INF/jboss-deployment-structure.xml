@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
     <deployment>
+        <!--eap 6.4 için kullanılacak-->
         <dependencies>
             <module name="javax.faces.api" slot="1.2" />
             <module name="com.sun.jsf-impl" slot="1.2" />

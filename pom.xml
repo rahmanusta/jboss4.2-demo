@@ -32,16 +32,12 @@
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
                     </archive>
-                    <!--<warName>seam-web</warName>-->
                     <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
                     <attachClasses>true</attachClasses>
                     <!--<archiveClasses>true</archiveClasses>-->
                     <webResources>
                         <resource>
-                            <!-- this is relative to the pom.xml directory -->
-                            <directory>${project.basedir}/src/main/resources
-                            </directory>
-
+                            <directory>${project.basedir}/src/main/resources</directory>
                         </resource>
                     </webResources>
                 </configuration>
@@ -63,7 +59,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <!-- JBoss Seam minimal -->
 
         <dependency>
             <groupId>org.jboss.seam</groupId>
