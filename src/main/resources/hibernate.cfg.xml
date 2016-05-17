@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration
+        PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="java:jboss/datasources/seamWebSessionFactory">
+        <property name="connection.datasource">java:seamWebDatasource</property>
+        <!--<property name="connection.driver_class">org.postgresql.Driver</property>-->
+        <!--<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>-->
+        <property name="show_sql">false</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.format_sql">false</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+        <property name="transaction.flush_before_completion">true</property>
+        <property name="connection.release_mode">after_statement</property>
+        <property name="default_batch_fetch_size">4</property>
+        <property name="connection.autocommit">false</property>
+        <mapping class="com.kodcu.war.Hedgehog" />
+        <event type="pre-update">
+            <listener class="org.hibernate.validator.event.ValidateEventListener" />
+        </event>
+        <event type="pre-insert">
+            <listener class="org.hibernate.validator.event.ValidateEventListener" />
+        </event>
+    </session-factory>
+
+
+</hibernate-configuration>
