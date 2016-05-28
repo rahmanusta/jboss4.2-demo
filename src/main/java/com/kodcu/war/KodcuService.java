@@ -1,39 +1,40 @@
 package com.kodcu.war;
 
-import javax.ejb.Remove;
-import org.jboss.seam.annotations.Name;
-import org.jboss.seam.annotations.Scope;
-import org.jboss.seam.annotations.In;
-import org.jboss.seam.annotations.Factory;
-import org.jboss.seam.annotations.datamodel.DataModel;
-import org.jboss.seam.ScopeType;
 import org.hibernate.Session;
 
-import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
+import java.util.List;
 
-@Name("kodcuService")
-@Scope(ScopeType.SESSION)
+@Named("kodcuService")
+@SessionScoped
 public class KodcuService implements Serializable {
 
-    @In(create = true)
+    @Inject
     private Session session;
 
-    @DataModel
     private List<Hedgehog> users;
-
-    public KodcuService() {
-    }
 
     public String getHello() {
         return "Your KodcuService says hi!";
     }
 
-    @Factory("users")
+    @PostConstruct
     public void loadHedgehogs() {
         users = session.createCriteria(Hedgehog.class).list();
     }
 
-    @Remove
-    public void destroy() {}
+    @Produces
+    @Named("users")
+    public List<Hedgehog> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Hedgehog> users) {
+        this.users = users;
+    }
 }

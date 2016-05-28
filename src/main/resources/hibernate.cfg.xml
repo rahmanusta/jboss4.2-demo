@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory name="java:jboss/datasources/seamWebSessionFactory">
-        <property name="connection.datasource">java:seamWebDatasource</property>
+        <property name="connection.datasource">java:jboss/datasources/seamWebDatasource</property>
         <!--<property name="connection.driver_class">org.postgresql.Driver</property>-->
         <!--<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>-->
         <property name="show_sql">false</property>

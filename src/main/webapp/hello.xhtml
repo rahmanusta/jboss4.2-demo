@@ -15,10 +15,10 @@
 
 <p>#{kodcuService.hello}</p>
 
-<s:fragment rendered="#{users.size==0}">
+<s:fragment rendered="#{users.size()==0}">
     No User
 </s:fragment>
-<h:dataTable value="#{users}" var="h" rendered="#{users.size>0}">
+<h:dataTable value="#{users}" var="h" rendered="#{users.size()>0}">
     <h:column>
         <f:facet name="header">#{messages['user.id']}</f:facet>
         #{h.id}
